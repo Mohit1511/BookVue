@@ -6,6 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="e3c1a239-c9fc-49cd-b020-71d5daa2a836" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/controller/AuthorDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/controller/AuthorDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/controller/BookDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/controller/BookDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/entities/AuthorDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/entities/AuthorDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/entities/BookDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/entities/BookDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/helpers/LibraryDetailsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/helpers/LibraryDetailsHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/objects/AuthorDetailsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/objects/AuthorDetailsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/objects/BookDetailsRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/objects/BookDetailsRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/objects/BookDetailsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/objects/BookDetailsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/objects/KindleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/objects/KindleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/repositories/AuthorDetailsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/repositories/AuthorDetailsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/dao/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/dao/repositories/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/service/AuthorDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/service/AuthorDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/service/BookDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/service/BookDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IAuthorDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IAuthorDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/book/vue/LibraryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/library/controller/BookDetailsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/book/vue/library/controller/BookDetailsControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,57 +179,57 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/Library.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/Library.java</url>
           <line>12</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/controller/BookDetailsController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/controller/BookDetailsController.java</url>
           <line>13</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java</url>
           <line>113</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java</url>
           <line>66</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java</url>
           <line>70</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java</url>
           <line>74</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java</url>
           <line>79</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java</url>
           <line>83</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java</url>
           <line>65</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/library/service/impl/IBooksDetailsServiceImpl.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/book/vue/library/service/impl/IBooksDetailsServiceImpl.java</url>
           <line>63</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/org/example/library/controller/BookDetailsControllerTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/book/vue/library/controller/BookDetailsControllerTest.java</url>
           <line>66</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
