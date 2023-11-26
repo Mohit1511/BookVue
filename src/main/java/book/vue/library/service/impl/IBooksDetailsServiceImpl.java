@@ -77,11 +77,35 @@ public class IBooksDetailsServiceImpl implements BookDetailsService {
                 bookDetails = bookRepository.save(bookDetails);
                 kindleResponse = libraryDetailsHelper.createKindleResponse("SUCCESS");
                 kindleResponse.setResponse(libraryDetailsHelper.createBookDetailResponse(bookDetails));
-                return kindleResponse;
         } catch (Exception e){
             log.error("Exception occurred {}", (Object) e.getStackTrace());
+            return libraryDetailsHelper.createKindleResponse(StringUtils.isNotBlank(e.getMessage().trim()) ? e.getMessage() : "FAILURE");
         }
-        return libraryDetailsHelper.createKindleResponse("FAILURE");
+        return kindleResponse;
+    }
+
+    @Override
+    public KindleResponse updateBook(BookDetailsRequest bookDetailsRequest) {
+        KindleResponse<Object> kindleResponse;
+        try{
+            libraryDetailsHelper.validateBookDetailUpdateRequest(bookDetailsRequest);
+            log.info("book Detail Request {}", bookDetailsRequest);
+            BookDetails bookDetails = bookRepository.findByIsbnNumber(bookDetailsRequest.getIsbnNumber());
+            if(bookDetails == null){
+                throw new Exception("book Details cannot be null");
+            }
+            AuthorDetails authorDetails = authorDetailsRepository.findByAuthorId(bookDetails.getAuthorId());
+            if(authorDetails == null){
+                throw new Exception("author Details cannot be null");
+            }
+            bookDetails = libraryDetailsHelper.updateBookDetails(bookDetails, authorDetails, bookDetailsRequest);
+            kindleResponse = libraryDetailsHelper.createKindleResponse("SUCCESS");
+            kindleResponse.setResponse(libraryDetailsHelper.createBookDetailResponse(bookDetails));
+        } catch (Exception e){
+            log.error("Exception occurred {}", (Object) e.getStackTrace());
+            return libraryDetailsHelper.createKindleResponse(StringUtils.isNotBlank(e.getMessage().trim()) ? e.getMessage() : "FAILURE");
+        }
+        return kindleResponse;
     }
 
     @Override

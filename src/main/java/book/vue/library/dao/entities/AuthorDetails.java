@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -18,8 +19,14 @@ public class AuthorDetails {
     public Long id;
     @SerializedName(value = "fullName")
     private String fullName;
+
+//    @OneToMany(mappedBy = "book_details", cascade = CascadeType.ALL)
+//    private Set<BookDetails> bookDetailsSet;
+
+    @Column(name = "create_timestamp", updatable = false)
     @CreationTimestamp
     private Date createTimestamp;
+    @Column(name = "update_timestamp")
     @CreationTimestamp
     private Date updateTimestamp;
 
@@ -56,4 +63,10 @@ public class AuthorDetails {
     public void setUpdateTimestamp(Date updateTimestamp) {
         this.updateTimestamp = updateTimestamp;
     }
+//    public Set<BookDetails> getBookDetailsSet() {
+//        return bookDetailsSet;
+//    }
+//    public void setBookDetailsSet(Set<BookDetails> bookDetailsSet) {
+//        this.bookDetailsSet = bookDetailsSet;
+//    }
 }
