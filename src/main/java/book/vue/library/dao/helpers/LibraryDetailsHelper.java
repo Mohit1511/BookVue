@@ -4,6 +4,7 @@ import book.vue.library.dao.entities.BookDetails;
 import book.vue.library.dao.objects.BookDetailsRequest;
 import book.vue.library.dao.objects.BookDetailsResponse;
 import book.vue.library.dao.objects.KindleResponse;
+import book.vue.library.dao.repositories.BookRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import book.vue.library.dao.entities.AuthorDetails;
@@ -12,7 +13,9 @@ import book.vue.library.dao.repositories.AuthorDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -20,6 +23,9 @@ import java.util.List;
 public class LibraryDetailsHelper {
     @Autowired
     private AuthorDetailsRepository authorDetailsRepository;
+
+    @Autowired
+    private BookRepository bookRepository;
     public BookDetailsResponse createBookDetailResponse(BookDetails bookDetails) {
         BookDetailsResponse bookDetailsResponse = new BookDetailsResponse();
         bookDetailsResponse.setBookName(bookDetails.getTitle());
@@ -84,12 +90,34 @@ public class LibraryDetailsHelper {
         return bookDetails;
     }
 
+    public BookDetails updateBookDetails(BookDetails bookDetails, AuthorDetails authorDetails, BookDetailsRequest bookDetailsRequest) throws  Exception{
+        try{
+            bookDetails.setTitle(StringUtils.isNotBlank(bookDetailsRequest.getTitle()) ? bookDetailsRequest.getTitle() : bookDetails.getTitle());
+            bookDetails.setGenre(StringUtils.isNotBlank(bookDetailsRequest.getGenre()) ? bookDetailsRequest.getGenre() : bookDetails.getGenre());
+            bookDetails.setNoOfPages(StringUtils.isNotBlank(bookDetailsRequest.getNoOfPages().toString()) ? bookDetailsRequest.getNoOfPages() : bookDetails.getNoOfPages());
+            bookDetails.setUpdateTimestamp(new Date());
+            bookDetails.setAuthorName(StringUtils.isNotBlank(bookDetailsRequest.getAuthorName()) ? bookDetailsRequest.getAuthorName() : authorDetails.getFullName());
+            bookDetails.setContent(StringUtils.isNotBlank(bookDetailsRequest.getContent()) ? bookDetailsRequest.getContent().getBytes() : bookDetails.getContent());
+            bookDetails.setAuthorId(bookDetails.getAuthorId());
+            if(StringUtils.isNotBlank(bookDetailsRequest.getAuthorName())){
+                authorDetails.setFullName(bookDetailsRequest.getAuthorName());
+                authorDetailsRepository.save(authorDetails);
+            }
+            bookRepository.save(bookDetails);
+            return bookDetails;
+        } catch (Exception e){
+            throw new Exception("Exception occurred while updating/setting values");
+        }
+    }
+
     public void validateBookFilterRequest(BookDetailsRequest bookDetailsRequest) throws  Exception{
         if(bookDetailsRequest == null){
             throw  new Exception("bookDetailRequest is null");
         }
 
-        if(!StringUtils.isNotBlank(bookDetailsRequest.getTitle()) || !StringUtils.isNotBlank(bookDetailsRequest.getAuthorName()) || !StringUtils.isNotBlank(bookDetailsRequest.getGenre())){
+        if(!StringUtils.isNotBlank(bookDetailsRequest.getTitle())
+                || !StringUtils.isNotBlank(bookDetailsRequest.getAuthorName())
+                || !StringUtils.isNotBlank(bookDetailsRequest.getGenre())){
             throw new Exception();
         }
     }
@@ -99,8 +127,24 @@ public class LibraryDetailsHelper {
             throw new Exception();
         }
 
-        if(!StringUtils.isNotBlank(bookDetailsRequest.getTitle()) || !StringUtils.isNotBlank(bookDetailsRequest.getAuthorName()) || !StringUtils.isNotBlank(bookDetailsRequest.getGenre()) || !StringUtils.isNotBlank(bookDetailsRequest.getIsbnNumber())){
+        if(!StringUtils.isNotBlank(bookDetailsRequest.getTitle())
+                || !StringUtils.isNotBlank(bookDetailsRequest.getAuthorName())
+                || !StringUtils.isNotBlank(bookDetailsRequest.getGenre())
+                || !StringUtils.isNotBlank(bookDetailsRequest.getIsbnNumber())){
           throw new Exception();
+        }
+    }
+
+    public void validateBookDetailUpdateRequest(BookDetailsRequest bookDetailsRequest) throws Exception{
+        if(bookDetailsRequest == null){
+            throw new Exception();
+        }
+
+        if(!StringUtils.isNotBlank(bookDetailsRequest.getTitle())
+                && !StringUtils.isNotBlank(bookDetailsRequest.getAuthorName())
+                && !StringUtils.isNotBlank(bookDetailsRequest.getGenre())
+                && !StringUtils.isNotBlank(bookDetailsRequest.getIsbnNumber())){
+            throw new Exception();
         }
     }
 

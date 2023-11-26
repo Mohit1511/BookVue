@@ -16,6 +16,7 @@ public interface BookDetailsService {
     public KindleResponse<List<BookDetailsResponse>> fetchAllBooks();
 
     public KindleResponse insertBook(BookDetailsRequest bookDetailsRequest);
+    public KindleResponse updateBook(BookDetailsRequest bookDetailsRequest);
 
     public KindleResponse<List<BookDetailsResponse>> filterBooks(BookDetailsRequest bookDetailsRequest);
 }

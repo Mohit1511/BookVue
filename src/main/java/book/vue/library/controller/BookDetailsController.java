@@ -33,6 +33,11 @@ public class BookDetailsController {
         KindleResponse kindleResponse = bookDetailsService.insertBook(bookDetailsRequest);
         return (kindleResponse.getStatusMessage().equalsIgnoreCase("FAILURE")) ? new ResponseEntity<>(kindleResponse, HttpStatus.BAD_REQUEST) : new ResponseEntity<>(kindleResponse,HttpStatus.OK);
     }
+    @PutMapping("/updateBook")
+    public ResponseEntity<KindleResponse> updateBook(@RequestBody BookDetailsRequest bookDetailsRequest){
+        KindleResponse kindleResponse = bookDetailsService.updateBook(bookDetailsRequest);
+        return (kindleResponse.getStatusMessage().equalsIgnoreCase("FAILURE")) ? new ResponseEntity<>(kindleResponse, HttpStatus.BAD_REQUEST) : new ResponseEntity<>(kindleResponse,HttpStatus.OK);
+    }
 
     @PostMapping("/fetchBookDetails")
     public ResponseEntity<KindleResponse<BookDetailsResponse>> fetchBookDetails(@RequestBody BookDetailsRequest bookDetailsRequest){

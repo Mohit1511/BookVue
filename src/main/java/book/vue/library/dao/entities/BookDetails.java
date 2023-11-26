@@ -32,33 +32,19 @@ public class BookDetails {
 
     @Column(name="author_id",nullable = false)
     private Long authorId;
-
-    public String getAuthorName() {
-        return authorName;
-    }
-
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
-    }
-
     @Column(name="author_name", nullable = false)
     private String authorName;
 
-    @Column(name="added_on", nullable = false)
+//    @ManyToOne
+//    @JoinColumn(name="book_id")
+//    private AuthorDetails authorDetails;
+
+    @Column(name="added_on", nullable = false, updatable = false)
     @CreationTimestamp
     private Date createTimestamp;
-    @Column(name="modified_on", insertable = false, updatable = false)
+    @Column(name="modified_on")
     @CreationTimestamp
     private Date updateTimestamp;
-
-    public byte[] getContent() {
-        return content;
-    }
-
-    public void setContent(byte[] content) {
-        this.content = content;
-    }
-
     @Lob
     @Column(name="content", columnDefinition = "LONGBLOB")
     private byte[] content;
@@ -127,6 +113,21 @@ public class BookDetails {
     public Date getCreateTimestamp() {
         return createTimestamp;
     }
+    public String getAuthorName() {
+        return authorName;
+    }
+    public byte[] getContent() {
+        return content;
+    }
+
+    public void setContent(byte[] content) {
+        this.content = content;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
 
     @Override
     public String toString() {
